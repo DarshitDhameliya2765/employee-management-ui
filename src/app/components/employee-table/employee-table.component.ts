@@ -17,7 +17,10 @@ export class EmployeeTableComponent implements OnChanges {
     if (this.departmentId) {
       this.empService.getEmployeesByDepartment(this.departmentId)
         .subscribe(data => this.employees = data);
-    }
+    } else {
+    this.empService.getAllEmployees()
+      .subscribe(data => this.employees = data);
+  }
   }
 
   viewDetails(empId: string) {
